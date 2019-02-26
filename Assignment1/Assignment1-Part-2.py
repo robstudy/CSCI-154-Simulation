@@ -23,10 +23,10 @@ class Scrambler:
             # shuffle function from random module will shuffle middle
             shuffle(middle)
             # new string consisting of shuffled middle
-            shuffled_innards = ''.join(middle)
+            shuffled_middle = ''.join(middle)
 
             # new word consists of original first, shuffled middle, and original last element
-            new_word = word[0] + shuffled_innards + word[-1]
+            new_word = word[0] + shuffled_middle + word[-1]
             # add each new word to the paragraph list, forming a new sentence
             new_paragraph_list.append(new_word)
 
