@@ -1,7 +1,8 @@
 # Assignment 1
-# 
+# Part 1
 # Robert Garza, Jheovanny Camacho, Robert Hovanesian
 # 03-05-2019
+
 
 def pascals(row):
 
@@ -25,26 +26,30 @@ def pascals(row):
 			print(int(num),' ',end=' ')
 		print()
 
+
 def fact(n):
-    if n == 0:
-        return 1
-    elif n > 0:
-        return n * fact(n-1)
+	if n == 0:
+		return 1
+	elif n > 0:
+		return n * fact(n-1)
+
 
 def euler():
 	euler_num = 0
 	sequence = 0
 	next_term = 1 / fact(sequence)
-	while  next_term > 10e-10:
+	while next_term > 10e-10:
 		euler_num += next_term
 		sequence += 1
 		next_term = 1/fact(sequence)
 	return euler_num
 
+
 def absolute_value(num):
 	if num < 0:
 		return num * (-1)
 	return num
+
 
 def sin_of_x(x):
 	sin_x = 0
@@ -56,6 +61,7 @@ def sin_of_x(x):
 		next_term = (((-1)**n)*(x**(2*n + 1)))/ fact((2*n + 1))
 	return sin_x
 
+
 def display_menu():
 	print('Type \'A\', \'B\', \'C\', \'D\', \'M\', \'Q\'')
 	print('A. Display Pascal\'s triangle of height H.')
@@ -65,26 +71,27 @@ def display_menu():
 	print('M. Display these menu options.')
 	print('Q. Exit from the program.')
 
+
 display_menu()
 
 user_input = ''
 
-while user_input != 'q':
+while user_input != 'q' or 'Q':
 	user_input = input()
-	if user_input == 'a':
+	if user_input == 'a' or 'A':
 		row = -1
 		while row < 0:
 			row = int(input('Enter triangle height as a non-negative number: '))
 		pascals(row)
-	elif user_input == 'b':
+	elif user_input == 'b' or 'B':
 		n = -1
 		while n < 0:
 			n = int(input('Enter a non-negative number: '))
 		print(fact(n))
-	elif user_input == 'c':
+	elif user_input == 'c' or 'C':
 		print(euler())
-	elif user_input == 'd':
+	elif user_input == 'd' or 'D':
 		x = int(input('Enter X in radians: '))
 		print(sin_of_x(x))
-	elif user_input == 'm':
+	elif user_input == 'm' or 'M':
 		display_menu()
