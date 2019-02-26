@@ -3,11 +3,28 @@
 # Robert Garza, Jheovanny Camacho, Robert Hovanesian
 # 03-05-2019
 
-def pascals():
-	return
+def pascals(row):
+	nCk = lambda n, r: fact(n) / (fact(r) * fact(n-r))
+	result = []
+	for i in range(row):
+		lines = []
+		for num in range(i + 1):
+			lines.append(nCk(i, num))
+		result.append(lines)
+	spaces = row-1
+	for rows in result:
+		for i in range(spaces):
+			print(' ', end=' ')
+		spaces -= 1
+		for num in rows:
+			print(int(num),' ',end=' ')
+		print()
 
-def factorial():
-	return
+def fact(n):
+    if n == 0:
+        return 1
+    elif n > 0:
+        return n * fact(n-1)
 
 def euler():
 	return
@@ -26,14 +43,20 @@ def display_menu():
 
 display_menu()
 
-user_input = input()
+user_input = ''
 
 while user_input != 'q':
 	user_input = input()
 	if user_input == 'a':
-		pascals()
+		h = -1
+		while h < 0:
+			h = int(input('Enter triangle height as a non-negative number'))
+		pascals(h)
 	elif user_input == 'b':
-		factorial()
+		f = -1
+		while f < 0:
+			f = int(input('Enter a non-negative number:'))
+		print(fact(f))
 	elif user_input == 'c':
 		euler()
 	elif user_input == 'd':
