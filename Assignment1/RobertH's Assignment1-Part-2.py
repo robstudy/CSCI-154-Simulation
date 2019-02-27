@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Assignment 1
-# Part 3
+# Part 2
 # Robert Garza, Jheovanny Camacho, Robert Hovanesian
 # 03-05-2019
 from random import shuffle
