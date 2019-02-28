@@ -6,11 +6,18 @@
 
 class Hamburger:
     def __init__(self, **kwargs):
+        """
+        initialization of Hamburger class,
+        arbitrary number of keyword arguments accepted
+        """
         # object attributes are mapped to the keyword arguments
         # self dictionary is used to store mappings
         self.__dict__ = kwargs
 
     def __str__(self, sep=''):
+        """
+        string version of object returns single string of all dict values separated by commas
+        """
         return (', '.join(list(self.__dict__.values())))
 
 

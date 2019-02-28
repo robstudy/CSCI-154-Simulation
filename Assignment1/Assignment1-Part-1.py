@@ -5,6 +5,9 @@
 
 
 def pascals(row):
+	"""
+	Print n rows of pascals triangle
+	"""
 
 	nCk = lambda n, r: fact(n) / (fact(r) * fact(n-r))
 
@@ -28,6 +31,9 @@ def pascals(row):
 
 
 def fact(n):
+	"""
+	return the n! factorial
+	"""
 	if n == 0:
 		return 1
 	elif n > 0:
@@ -35,10 +41,13 @@ def fact(n):
 
 
 def euler():
+	"""
+	return estimation of euler number
+	"""
 	euler_num = 0
 	sequence = 0
 	next_term = 1 / fact(sequence)
-	while next_term > 10e-10:
+	while  next_term > 10e-10:
 		euler_num += next_term
 		sequence += 1
 		next_term = 1/fact(sequence)
@@ -46,12 +55,18 @@ def euler():
 
 
 def absolute_value(num):
+	"""
+	return the absolute value
+	"""
 	if num < 0:
 		return num * (-1)
 	return num
 
 
 def sin_of_x(x):
+	"""
+	return the sin(x) in radians
+	"""
 	sin_x = 0
 	n = 0
 	next_term = (((-1)**n)*(x**(2*n + 1)))/ fact((2*n + 1))
@@ -63,6 +78,9 @@ def sin_of_x(x):
 
 
 def display_menu():
+	"""
+	display menu options for input while loop
+	"""
 	print('Type \'A\', \'B\', \'C\', \'D\', \'M\', \'Q\'')
 	print('A. Display Pascal\'s triangle of height H.')
 	print('B. Display the value of the factorial of N.')
@@ -76,22 +94,22 @@ display_menu()
 
 user_input = ''
 
-while user_input != 'q' or 'Q':
+while user_input.lower() != 'q':
 	user_input = input()
-	if user_input == 'a' or 'A':
+	if user_input.lower() == 'a':
 		row = -1
 		while row < 0:
 			row = int(input('Enter triangle height as a non-negative number: '))
 		pascals(row)
-	elif user_input == 'b' or 'B':
+	elif user_input.lower() == 'b':
 		n = -1
 		while n < 0:
 			n = int(input('Enter a non-negative number: '))
 		print(fact(n))
-	elif user_input == 'c' or 'C':
+	elif user_input.lower() == 'c':
 		print(euler())
-	elif user_input == 'd' or 'D':
+	elif user_input.lower() == 'd':
 		x = int(input('Enter X in radians: '))
 		print(sin_of_x(x))
-	elif user_input == 'm' or 'M':
+	elif user_input.lower() == 'm':
 		display_menu()

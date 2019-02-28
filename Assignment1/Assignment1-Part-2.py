@@ -7,10 +7,29 @@ from random import shuffle
 
 
 class Scrambler:
-    def __init__(self, paragraph):
-        self.paragraph = paragraph
+    def __init__(self):
+        """
+        initialization of Scrambler class,
+        asks for user input to get started
+        """
+        # object attribute is empty list to start
+        self.paragraph = []
+
+        while True:
+            # user input for each individual line, breaking up words into a list
+            new_line = input("Type a line to scramble (empty line to quit): ").split()
+
+            # if no new sentences, break out of loop
+            if not new_line:
+                break
+            # otherwise append to object attribute
+            else:
+                self.paragraph += new_line
 
     def scramble_it(self):
+        """
+        returns string of scrambled words from paragraph attribute
+        """
         # initialize paragraph list
         new_paragraph_list = []
         words = self.paragraph
@@ -36,8 +55,6 @@ class Scrambler:
         return new_paragraph_string
 
 
-user_paragraph = input('Please enter one sentence at a time: ').split()
-
-scramble = Scrambler(user_paragraph)
+scramble = Scrambler()
 print(scramble.scramble_it())
 
