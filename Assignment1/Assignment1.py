@@ -87,22 +87,22 @@ display_menu()
 
 user_input = ''
 
-while user_input != 'q':
+while user_input.lower() != 'q':
 	user_input = input()
-	if user_input == 'a':
+	if user_input.lower() == 'a':
 		row = -1
 		while row < 0:
 			row = int(input('Enter triangle height as a non-negative number: '))
 		pascals(row)
-	elif user_input == 'b':
+	elif user_input.lower() == 'b':
 		n = -1
 		while n < 0:
 			n = int(input('Enter a non-negative number: '))
 		print(fact(n))
-	elif user_input == 'c':
+	elif user_input.lower() == 'c':
 		print(euler())
-	elif user_input == 'd':
+	elif user_input.lower() == 'd':
 		x = int(input('Enter X in radians: '))
 		print(sin_of_x(x))
-	elif user_input == 'm':
+	elif user_input.lower() == 'm':
 		display_menu()
