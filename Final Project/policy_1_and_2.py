@@ -54,7 +54,7 @@ def policy_2():
 	for i in range(len(hand)):
 		if hand[i]==1:
 			hand[i]=11
-	print(hand,end="	")
+#	print(hand,end="	")
 	return policy_2_r(hand)
 
 def policy_2_r(hand):
