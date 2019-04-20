@@ -1,7 +1,5 @@
 
-*/.idea/Assignment1.iml
-*/.idea/Final Project.iml
-
+*/.idea/*.iml
 */.idea/encodings.xml
 */.idea/inspectionProfiles/Project_Default.xml
 */.idea/misc.xml
