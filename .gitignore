@@ -1,8 +1,12 @@
 
-Assignment1/.idea/Assignment1.iml
-Assignment1/.idea/encodings.xml
-Assignment1/.idea/inspectionProfiles/Project_Default.xml
-Assignment1/.idea/misc.xml
-Assignment1/.idea/modules.xml
-Assignment1/.idea/vcs.xml
-Assignment1/.idea/workspace.xml
+*/.idea/Assignment1.iml
+*/.idea/Final Project.iml
+
+*/.idea/encodings.xml
+*/.idea/inspectionProfiles/Project_Default.xml
+*/.idea/misc.xml
+*/.idea/modules.xml
+*/.idea/vcs.xml
+*/.idea/workspace.xml
+
+debug.log
