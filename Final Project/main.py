@@ -23,11 +23,11 @@ def draw_card():
 	if finite:
 		if deck[num-1] > 0:
 			deck[num-1]=deck[num-1]-1
-			return num
+			return num if num is not 1 else 11
 		elif not is_empty():
 			return draw_card()
 	else:
-		return num
+		return num if num is not 1 else 11
 
 def deal():
 	shuffle()
