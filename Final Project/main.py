@@ -5,7 +5,7 @@
 	Blackjack Monte Carlo Simulation
 	GROUP 2:
 	Jheovanny Camacho, 109697217, jheoc@mail.fresnostate.edu
-	Robert Garza,
+	Robert Garza, 106349886, robgarza@mail.fresnostate.edu
 	Robert Hovenesian, 110343681, roberthov@mail.fresnostate.edu
 """
 
@@ -440,7 +440,7 @@ def policy_7_r(hand):
 
 # STATISTICAL FUNCTIONS #
 def get_stats(policy, num_of_tests):
-	policy_stats = {'P_Wins': 0, 'D_Wins': 0, 'P_Bust': 0, 'D_Bust': 0, 'Draw': 0, 'Win_vs_Loss_Rate': 0, 'Win_and_Draw_vs_Loss_Rate': 0}
+	policy_stats = {'P_Wins': 0, 'D_Wins': 0, 'P_Bust': 0, 'D_Bust': 0, 'Draw': 0, 'Win_vs_Loss_Rate': 0, 'Win_and_Draw_vs_Loss_Rate': 0, 'num_of_tests': num_of_tests}
 	for i in range(num_of_tests):
 		hand,dealers_card=policy()
 
@@ -500,6 +500,6 @@ for i in range(5):
 #	print(hand,"	",sum(hand),"		",dealers_hand,"	",sum(dealers_hand),"		","Player Wins!" if sum(hand) > sum(dealers_hand) else "Player loses. . .")
 
 # this just shows how many of each card type is left in the deck, if finite
-if finite:
-	for i in range(10):
-		print(i+1,"s:	",deck[i])
+#if finite:
+#	for i in range(10):
+#		print(i+1,"s:	",deck[i])
