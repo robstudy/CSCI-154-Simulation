@@ -473,7 +473,7 @@ def get_stats(policy, num_of_tests):
 	policy_stats['Win_and_Draw_vs_Loss_Rate']=(policy_stats['P_Wins']+policy_stats['Draw'])/policy_stats['D_Wins']
 	return policy_stats
 
-
+#Get all statistics 
 def get_all_stats(policy, number_of_tests, average_over_x_tests):
     total_stats = {'P_Wins_total': [], 'D_Wins_total': [], 'P_Bust_total': [], 'D_Bust_total': [], 'Draw_total': []}
     for i in range(average_over_x_tests):
@@ -493,18 +493,19 @@ def get_all_stats(policy, number_of_tests, average_over_x_tests):
     p_tuple = (p_ave, float("{0:.2f}".format(stdev(total_stats['P_Wins_total']))), float("{0:.2f}".format(p_ave/n * 100)))
     d_tuple = (d_ave, float("{0:.2f}".format(stdev(total_stats['D_Wins_total']))), float("{0:.2f}".format(d_ave/n * 100)))
     p_b_tuple = (p_b_ave, float("{0:.2f}".format(stdev(total_stats['P_Bust_total']))), float("{0:.2f}".format(p_b_ave/n * 100)))
-    d_b_tuple = (d_b_ave, float("{0:.2f}".format(stdev(total_stats['P_Wins_total']))), float("{0:.2f}".format(d_b_ave/n * 100)))
+    d_b_tuple = (d_b_ave, float("{0:.2f}".format(stdev(total_stats['D_Bust_total']))), float("{0:.2f}".format(d_b_ave/n * 100)))
     draw_tuple = (draw_ave, float("{0:.2f}".format(stdev(total_stats['Draw_total']))), float("{0:.2f}".format(draw_ave/n * 100)))
-    return  {'P_Wins': p_tuple, 'D_Wins': d_tuple, 'P_Bust': p_b_tuple, 'D_Bust': d_b_tuple, 'Draw': draw_tuple}
+    return  {'P_Wins': p_tuple, 'D_Wins': d_tuple, 'P_Bust': p_b_tuple, 'D_Bust': d_b_tuple, 'Draw': draw_tuple, 'totals': total_stats}
 
-print("policy 1: ",get_all_stats(policy_1, 10000, 100))
-print("policy 2: ",get_all_stats(policy_2, 10000, 100))
-print("policy 3: ",get_all_stats(policy_3, 10000, 100))
-print("policy 4: ",get_all_stats(policy_4, 10000, 100))
-print("policy 5: ",get_all_stats(policy_5, 10000, 100))
-print("policy 6: ",get_all_stats(policy_6, 10000, 100))
-print("policy 7: ",get_all_stats(policy_7, 10000, 100))
-print(" ")
+#print("policy 1: ",get_all_stats(policy_1, 10000, 100))
+#print("policy 2: ",get_all_stats(policy_2, 10000, 100))
+#print("policy 3: ",get_all_stats(policy_3, 10000, 100))
+#print("policy 4: ",get_all_stats(policy_4, 10000, 100))
+#print("policy 5: ",get_all_stats(policy_5, 10000, 100))
+#print("policy 6: ",get_all_stats(policy_6, 10000, 100))
+#print("policy 7: ",get_all_stats(policy_7, 10000, 100))
+#print(" ")
+
 
 # checks each policy, uncommented one is the one being checked (in this case, policy 6)
 #for i in range(40):
