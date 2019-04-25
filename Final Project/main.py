@@ -497,6 +497,36 @@ def get_all_stats(policy, number_of_tests, average_over_x_tests):
     draw_tuple = (draw_ave, float("{0:.2f}".format(stdev(total_stats['Draw_total']))), float("{0:.2f}".format(draw_ave/n * 100)))
     return  {'P_Wins': p_tuple, 'D_Wins': d_tuple, 'P_Bust': p_b_tuple, 'D_Bust': d_b_tuple, 'Draw': draw_tuple, 'totals': total_stats}
 
+# STATISTICAL FUNCTIONS MODIFIED #
+def get_stats_mod(policy, num_of_tests):
+	stats_array = []
+	p_wins = 1
+	d_wins = -1
+	draw = 0
+	p_bust = -2
+	d_bust = 2
+	for i in range(num_of_tests):
+		hand,dealers_card=policy()
+
+		dealers_hand=[dealers_card,draw_card()]
+		dealers_hand=policy_1_r([dealers_card,draw_card()])
+
+		if sum(hand) == sum(dealers_hand):
+			stats_array.append(draw)
+		elif sum(hand) == 0:
+			stats_array.append(p_bust)
+		elif sum(hand) == 21:
+			stats_array.append(p_wins)
+		elif sum(dealers_hand) == 0:
+			stats_array.append(d_bust)
+		elif sum(hand) > sum(dealers_hand):
+			stats_array.append(p_wins)
+		else:
+			stats_array.append(d_wins)
+
+	return stats_array
+
+
 #print("policy 1: ",get_all_stats(policy_1, 10000, 100))
 #print("policy 2: ",get_all_stats(policy_2, 10000, 100))
 #print("policy 3: ",get_all_stats(policy_3, 10000, 100))
