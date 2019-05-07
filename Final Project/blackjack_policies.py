@@ -1,18 +1,21 @@
 import random
 
-#Project has two deck version
-#Version 1: Infinite deck: On every run a card is drawn with equal probability.
-#Version 2: Single deck: One deck of cards is used. The deck is reshuffled after every game.
 
-#returns new deck of Version 2
-def newDeck():
-    return {'Ace': 4, 'Two': 4, 'Three': 4, 'Four': 4, 'Five': 4, 'Six':4, 'Seven':4, 'Eight':4,
-         'Nine': 4, 'Ten': 4, 'J': 4, 'Q':4, 'K': 4}
+# Project has two deck version
+# Version 1: Infinite deck: On every run a card is drawn with equal probability.
+# Version 2: Single deck: One deck of cards is used. The deck is reshuffled after every game.
 
-deck = newDeck()
+# returns new deck of Version 2
+def new_deck():
+    return {'Ace': 4, 'Two': 4, 'Three': 4, 'Four': 4, 'Five': 4, 'Six': 4, 'Seven': 4, 'Eight': 4,
+            'Nine': 4, 'Ten': 4, 'J': 4, 'Q': 4, 'K': 4}
 
-#Check if Deck is Empty
-def isEmpty():
+
+deck = new_deck()
+
+
+# Check if Deck is Empty
+def is_empty():
     """
     Check if Deck is Empty
     """
@@ -22,8 +25,8 @@ def isEmpty():
     return True
 
 
-#draw cards from deck
-def drawCardVersion2():
+# draw cards from deck
+def draw_card_version2():
     """
     Draw Cards from a finite deck
     """
@@ -31,10 +34,11 @@ def drawCardVersion2():
     if numcards > 0:
         deck[card] -= 1
         return card
-    elif not isEmpty():
-        return drawCardVersion2()
+    elif not is_empty():
+        return draw_card_version2()
     else:
         return 'Empty Deck'
+
 
 # DEALER AND HELPER FUNCTIONS #
 def shuffle():
@@ -43,7 +47,8 @@ def shuffle():
     """
 
     global deck
-    deck = newDeck()
+    deck = new_deck()
+
 
 def deal():
     """
@@ -51,4 +56,4 @@ def deal():
     """
 
     shuffle()
-    return [draw_card(),draw_card()]
+    return [draw_card(), draw_card()]
