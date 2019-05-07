@@ -16,7 +16,7 @@ from statistics import stdev
 
 # global variables
 deck = [4, 4, 4, 4, 4, 4, 4, 4, 4, 16]  # card deck, list index is face value, list value is card count (1 per suite)
-finite = True  # if true, then finite deck, else it is an infinite deck
+finite = False  # if true, then finite deck, else it is an infinite deck
 
 # DEALER AND HELPER FUNCTIONS #
 def shuffle():
@@ -413,6 +413,49 @@ def policy_6_r(hand):
 		else:
 			return policy_6_r(hand)
 
+#New policy 7
+def check_likelihood(hand,acceptable_range):
+    safe=False
+    target=21-sum(hand)
+    if target > 10:
+        return True
+    acceptable=0
+    for i in range(target):
+        acceptable+=deck[i]
+
+    unacceptable=0
+    for i in range(len(deck)-target):
+        unacceptable+=deck[i+target]
+
+    return ((acceptable/(acceptable+unacceptable))>=acceptable_range)
+
+def policy_7():
+    hand=deal()
+    dealers_card=draw_card()
+    return policy_7_r(hand,0.25),dealers_card
+
+def policy_7_r(hand,acceptable_range):
+    if sum(hand) > 21:
+        is_soft,index=check_softness(hand)
+        if is_soft:
+            harden(hand,index)
+        else:
+            hand.clear()
+            return hand
+
+    if check_likelihood(hand,acceptable_range):
+        new_card=draw_card()
+        if new_card is not None:
+            hand,success=harden_until(new_card,hand)
+            if success is not True:
+                hand.clear()
+                return hand
+            else:
+                hand=policy_7_r(hand,acceptable_range)
+    return hand
+
+
+"""
 def policy_7(): # based on policy 1
 	hand=deal()
 	dealers_card=draw_card()
@@ -439,6 +482,7 @@ def policy_7_r(hand):
 			else:
 				hand=policy_7_r(hand)
 	return hand
+"""
 
 # STATISTICAL FUNCTIONS #
 def get_stats(policy, num_of_tests):
