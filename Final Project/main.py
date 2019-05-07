@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """
 CSCI 154, Final Project:
 Blackjack Monte Carlo Simulation
@@ -502,8 +500,6 @@ def policy_7_r_75(hand):
     return hand
 
 
-
-
 # STATISTICAL FUNCTIONS #
 def get_stats(policy, num_of_tests):
     policy_stats = {'P_Wins': 0, 'D_Wins': 0, 'P_Bust': 0, 'D_Bust': 0, 'Draw': 0, 'Win_vs_Loss_Rate': 0,
@@ -593,36 +589,3 @@ def get_stats_mod(policy, num_of_tests):
             stats_array.append(d_wins)
 
     return stats_array
-
-# print("policy 1: ",get_all_stats(policy_1, 10000, 100))
-# print("policy 2: ",get_all_stats(policy_2, 10000, 100))
-# print("policy 3: ",get_all_stats(policy_3, 10000, 100))
-# print("policy 4: ",get_all_stats(policy_4, 10000, 100))
-# print("policy 5: ",get_all_stats(policy_5, 10000, 100))
-# print("policy 6: ",get_all_stats(policy_6, 10000, 100))
-# print("policy 7: ",get_all_stats(policy_7, 10000, 100))
-# print(" ")
-
-
-# checks each policy, uncommented one is the one being checked (in this case, policy 6)
-# for i in range(40):
-##	hand,dealers_card=policy_1()
-#	hand,dealers_card=policy_2()
-##	hand,dealers_card=policy_3()
-##	hand,dealers_card=policy_4()
-##	hand,dealers_card=policy_5()
-##	hand,dealers_card=policy_6()
-#
-#	# dealer goes after the player and follows policy 1
-#	dealers_hand=policy_1_r([dealers_card,draw_card()])
-#
-#	# outputs the results, contains:
-#	# player's hand and sum,
-#	# dealer's hand and sum,
-#	# message on if the player wins or loses
-#	print(hand,"	",sum(hand),"		",dealers_hand,"	",sum(dealers_hand),"		","Player Wins!" if sum(hand) > sum(dealers_hand) else "Player loses. . .")
-
-# this just shows how many of each card type is left in the deck, if finite
-# if finite:
-#	for i in range(10):
-#		print(i+1,"s:	",deck[i])
